@@ -441,3 +441,13 @@ form input[type="submit"]:hover {
         width: 100px;
     }
 }
+footer p {
+    font-size: 0.75em;
+    text-align: center;
+    color: black;
+    padding: 0.1em;
+}
+
+footer p a {
+    color: #black;
+}
