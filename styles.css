@@ -1,4 +1,5 @@
-*/
+
+
 
 * {
     box-sizing: border-box;
@@ -11,24 +12,31 @@ body {
     font-size: 13px;
 }
 
+img {
+    max-width: 100%;
+}
+
+
+
 
 header {
     width: 100%;
     min-height: 200px;
-
     background: #c1b093;
 
     display: flex;
     align-items: center;
     padding: 10px 25px;
-
     gap: 25px;
+
+    position: relative;
 }
 
 header img {
     width: 200px;
     height: 200px;
     object-fit: contain;
+    display: block;
 }
 
 nav {
@@ -36,6 +44,7 @@ nav {
     gap: 30px;
     align-items: center;
     justify-content: center;
+
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -52,6 +61,8 @@ nav a:hover {
     text-decoration: underline;
 }
 
+
+
 #hero {
     width: 100%;
     height: 400px;
@@ -60,18 +71,19 @@ nav a:hover {
 
 #hero img {
     width: 100%;
-    height: 400px;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
 
+
+
+
 main {
     width: 100%;
     min-height: 300px;
-
     background: #ddd;
-
-    padding: 25px;
+    padding: 30px;
 }
 
 main h2 {
@@ -82,35 +94,39 @@ main h2 {
 }
 
 
+/* =========================
+   ABOUT SECTION
+========================= */
 
 .about {
-    max-width: 550px;
+    max-width: 750px;
     margin: auto;
     text-align: center;
 }
 
-.about p {
-    line-height: 1.5;
-    font-size: 30px;
+.about img {
+    width: 350px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 15px;
 }
 
-.about img {
-    width: 250px;
-    max-width: 100%;
-    margin-top: 15px;
+.about p {
+    font-size: 30px;
+    line-height: 1.5;
 }
 
 
 
 
 .menu {
-    max-width: 650px;
+    width: 100%;
+    max-width: 1000px;
     margin: auto;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
 }
 
 .item {
@@ -119,43 +135,56 @@ main h2 {
 }
 
 .item img {
-    width: 240px;
-    height: 240px;
+    width: 100%;
+    max-width: 240px;
+    aspect-ratio: 1;
+    height: auto;
     border-radius: 50%;
     object-fit: cover;
 }
 
-
 .item p {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 
+/* =========================
+   MERCHANDISE SECTION
+========================= */
+
 .merchandise {
-    max-width: 500px;
+    width: 100%;
+    max-width: 800px;
     margin: auto;
 
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 30px;
-    
 }
 
 .product {
+    flex: 1 1 220px;
     text-align: center;
     font-size: 20px;
 }
 
 .product img {
-    width: 240px;
-    height: 240px;
+    width: 100%;
+    max-width: 240px;
+    aspect-ratio: 1;
+    height: auto;
     object-fit: cover;
     border-radius: 50%;
 }
 
 .product h3 {
-    margin-top: 10px;
+    margin-top: 15px;
+    font-size: 22px;
 }
+
+
+
 
 form {
     width: 90%;
@@ -165,12 +194,10 @@ form {
     padding: 35px;
 
     background: #f5f0e6;
-
     border: 2px solid #000;
 
     display: grid;
-    grid-template-columns: 180px 1fr;
-
+    grid-template-columns: 180px minmax(0, 1fr);
     gap: 15px;
 }
 
@@ -184,11 +211,11 @@ form label {
 form input,
 form textarea {
     width: 100%;
-
+    min-width: 0;
     border: 1px solid #777;
     padding: 10px;
-
     font-size: 15px;
+    font-family: Arial, sans-serif;
 }
 
 form textarea {
@@ -198,14 +225,12 @@ form textarea {
 
 form input[type="submit"] {
     grid-column: 1 / 3;
-
     width: 100px;
 
     margin: 10px auto 0;
 
     background: #8A7254;
-    color: white;
-
+    color: #fff;
     border: 1px solid #000;
     padding: 10px;
 
@@ -216,6 +241,35 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
     background: #6f5a42;
 }
+
+
+
+footer {
+    width: 100%;
+    background: #000;
+    padding: 15px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    padding: 5px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+footer p a {
+    color: #c1b093;
+    text-decoration: none;
+}
+
+footer p a:hover {
+    text-decoration: underline;
+}
+
+
 
 
 @media screen and (max-width: 768px) {
@@ -231,7 +285,7 @@ form input[type="submit"]:hover {
     }
 
     nav {
-        gap: 18px;
+        gap: 15px;
     }
 
     nav a {
@@ -239,11 +293,7 @@ form input[type="submit"]:hover {
     }
 
     #hero {
-        height: 110px;
-    }
-
-    #hero img {
-        height: 110px;
+        height: 220px;
     }
 
     main {
@@ -251,7 +301,7 @@ form input[type="submit"]:hover {
     }
 
     main h2 {
-        font-size: 32px;
+        font-size: 34px;
     }
 
     .about {
@@ -263,22 +313,25 @@ form input[type="submit"]:hover {
     }
 
     .about p {
-        font-size: 17px;
+        font-size: 20px;
     }
 
     .menu {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         max-width: 600px;
+        gap: 25px;
+    }
+
+    .item {
+        font-size: 22px;
     }
 
     .item img {
-        width: 130px;
-        height: 130px;
+        max-width: 180px;
     }
 
     .item p {
-        font-size: 17px;
+        margin-top: 15px;
     }
 
     .merchandise {
@@ -286,48 +339,54 @@ form input[type="submit"]:hover {
         gap: 25px;
     }
 
-    .product img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .product h3 {
+    .product {
+        flex-basis: 180px;
         font-size: 18px;
     }
 
+    .product img {
+        max-width: 180px;
+    }
+
+    .product h3 {
+        font-size: 20px;
+    }
+
     form {
-        width: 90%;
+        width: 95%;
         max-width: 600px;
+        padding: 25px;
+        grid-template-columns: 140px minmax(0, 1fr);
     }
 }
+
+
+
 
 @media screen and (max-width: 480px) {
 
     header {
         min-height: 150px;
-
         flex-direction: column;
         justify-content: center;
-
         padding: 10px;
         gap: 5px;
     }
 
     header img {
-        position: static;
-
         width: 80px;
         height: 80px;
     }
 
     nav {
         position: static;
+        left: auto;
         transform: none;
 
+        width: 100%;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-
         gap: 8px;
     }
 
@@ -340,11 +399,11 @@ form input[type="submit"]:hover {
     /* HERO */
 
     #hero {
-        height: 80px;
+        height: 120px;
     }
 
     #hero img {
-        height: 80px;
+        height: 100%;
     }
 
 
@@ -379,17 +438,21 @@ form input[type="submit"]:hover {
     /* MENU */
 
     .menu {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 20px 10px;
     }
 
+    .item {
+        font-size: 16px;
+    }
+
     .item img {
-        width: 100px;
-        height: 100px;
+        max-width: 120px;
     }
 
     .item p {
-        font-size: 14px;
+        margin-top: 10px;
+        font-size: 15px;
     }
 
 
@@ -401,9 +464,14 @@ form input[type="submit"]:hover {
         gap: 30px;
     }
 
+    .product {
+        flex: none;
+        width: 100%;
+        font-size: 16px;
+    }
+
     .product img {
-        width: 140px;
-        height: 140px;
+        max-width: 160px;
     }
 
     .product h3 {
@@ -415,15 +483,17 @@ form input[type="submit"]:hover {
 
     form {
         width: 100%;
+        margin: 20px auto;
         padding: 20px;
 
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 8px;
     }
 
     form label {
         text-align: left;
         font-size: 15px;
+        padding-top: 5px;
     }
 
     form input,
@@ -439,22 +509,17 @@ form input[type="submit"]:hover {
     form input[type="submit"] {
         grid-column: 1;
         width: 100px;
+        margin-top: 10px;
     }
-}
-footer p {
-    font-size: 14px;
-    text-align: center;
-    color: #fff;
-    padding: 5px;
-    margin: 0;
-    line-height: 1.6;
-}
 
-footer p a {
-    color: #c1b093;
-    text-decoration: none;
-}
 
-footer p a:hover {
-    text-decoration: underline;
+    /* FOOTER */
+
+    footer {
+        padding: 12px;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
 }
